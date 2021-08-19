@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f3f3;
+    overflow: hidden;
+}
+.container{
+    width: 1050px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: skewY(-10deg)
+}
+.card{
+    width: 300px;
+    transform-style: preserve-3d;
+    background: #fff;
+    height: 450px;
+    transition: 1s;
+}
+.card::before,.card::after{
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: #00c0fe;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 1s;
+}
+.card::after{
+    top: 0;
+    left: -15px;
+    width: 15px;
+    height: 200px;
+    transform-origin: right;
+    transform: skewY(45deg);
+    border-bottom: 250px solid #d9d9d9;
+}
+.card:hover{
+    transform: translateY(-20px);
+}
+.imgbx{
+    height: 200px;
+    background-color: #00c0fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+img{
+    max-width: 100px;
+}
+h3{
+    color: #fff;
+    margin-top: 20px;
+}
+.content{
+    height: 250px;
+    background: #fff;
+    font-size: 1.1em;
+}
+.content::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(transparent,transparent,rgba(0,0,0,0.1));
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 1s;
+    z-index: -1;
+    pointer-events: none;
+}
+.card:hover .content::before{
+    transform:translateY(40px) skewX(45deg) ;
+    filter: blur(5px);
+}
+p{
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+.card:nth-child(1){
+    z-index: 3;
+}
+.card:nth-child(2){
+    z-index: 2;
+}
+.card:nth-child(3){
+    z-index: 1;
+}
